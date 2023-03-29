@@ -13,44 +13,34 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // Provide the [TabController]
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
           body: SafeArea(
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                Container(
+                  height: 40,
+                  margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  ),
                   child: SegmentedTabControl(
-                    // Customization of widget
-                    radius: const Radius.circular(3),
-                    backgroundColor: Colors.grey.shade300,
-                    indicatorColor: Colors.orange.shade200,
-                    tabTextColor: Colors.black45,
-                    selectedTabTextColor: Colors.white,
-                    squeezeIntensity: 2,
-                    height: 45,
-                    tabPadding: const EdgeInsets.symmetric(horizontal: 8),
-                    textStyle: Theme.of(context).textTheme.bodyText1,
-                    // Options for selection
-                    // All specified values will override the [SegmentedTabControl] setting
-                    tabs: [
+                    shadow: [BoxShadow(blurRadius: 5, color: const Color(0xff242837).withOpacity(0.25))],
+                    tabs: const [
                       SegmentTab(
-                        label: 'ACCOUNT',
-                        // For example, this overrides [indicatorColor] from [SegmentedTabControl]
-                        color: Colors.red.shade200,
+                        label: '팔로워',
                       ),
                       SegmentTab(
-                        label: 'HOME',
-                        backgroundColor: Colors.blue.shade100,
-                        selectedTextColor: Colors.black45,
-                        textColor: Colors.black26,
+                        label: '팔로잉',
                       ),
-                      const SegmentTab(label: 'NEW'),
+                      SegmentTab(
+                        label: '요청됨',
+                      ),
                     ],
                   ),
                 ),
-                // Sample pages
                 Padding(
                   padding: const EdgeInsets.only(top: 70),
                   child: TabBarView(
@@ -94,9 +84,7 @@ class SampleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(10))),
+      decoration: BoxDecoration(color: color, borderRadius: const BorderRadius.vertical(top: Radius.circular(10))),
       child: Text(label),
     );
   }
