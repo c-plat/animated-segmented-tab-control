@@ -246,17 +246,21 @@ class _SegmentedTabControlState extends State<SegmentedTabControl> with SingleTi
 
         return ClipRRect(
           borderRadius: BorderRadius.all(widget.radius),
-          child: SizedBox(
-            height: widget.height,
+          child: Container(
+            color: Colors.transparent,
+            height: widget.height + 24,
+            alignment: Alignment.center,
             child: Stack(
               children: [
                 AnimatedContainer(
                   duration: kTabScrollDuration,
                   curve: Curves.ease,
+                  height: widget.height,
                   decoration: BoxDecoration(
                     color: backgroundColor,
                     borderRadius: borderRadius,
                   ),
+                  margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   child: Material(
                     color: Colors.transparent,
                     child: _Labels(
@@ -264,7 +268,7 @@ class _SegmentedTabControlState extends State<SegmentedTabControl> with SingleTi
                       splashColor: widget.splashColor,
                       splashHighlightColor: widget.splashHighlightColor,
                       callbackBuilder: _onTabTap(),
-                      availableSpace: constraints.maxWidth,
+                      availableSpace: constraints.maxWidth - 48,
                       tabs: widget.tabs,
                       currentIndex: _internalIndex,
                       textStyle: textStyle.copyWith(
@@ -286,6 +290,7 @@ class _SegmentedTabControlState extends State<SegmentedTabControl> with SingleTi
                         duration: kTabScrollDuration,
                         curve: Curves.ease,
                         width: indicatorWidth,
+                        margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                         height: widget.height - widget.indicatorPadding.vertical,
                         decoration: BoxDecoration(
                           color: indicatorColor,

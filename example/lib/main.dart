@@ -15,51 +15,23 @@ class MyApp extends StatelessWidget {
       // Provide the [TabController]
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
-          body: SafeArea(
-            child: Stack(
-              children: [
-                Container(
-                  height: 40,
-                  margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: SegmentedTabControl(
-                    shadow: [BoxShadow(blurRadius: 5, color: const Color(0xff242837).withOpacity(0.25))],
-                    tabs: const [
-                      SegmentTab(
-                        label: '팔로워',
-                      ),
-                      SegmentTab(
-                        label: '팔로잉',
-                      ),
-                      SegmentTab(
-                        label: '요청됨',
-                      ),
-                    ],
-                  ),
+          body: Center(
+            child: SegmentedTabControl(
+              height: 40,
+              radius: const Radius.circular(20),
+              shadow: [BoxShadow(blurRadius: 5, color: const Color(0xff242837).withOpacity(0.25))],
+              tabs: const [
+                SegmentTab(
+                  label: '팔로워',
+                  color: Colors.white,
+                  backgroundColor: Colors.grey,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 70),
-                  child: TabBarView(
-                    physics: const BouncingScrollPhysics(),
-                    children: [
-                      SampleWidget(
-                        label: 'FIRST PAGE',
-                        color: Colors.red.shade200,
-                      ),
-                      SampleWidget(
-                        label: 'SECOND PAGE',
-                        color: Colors.blue.shade100,
-                      ),
-                      SampleWidget(
-                        label: 'THIRD PAGE',
-                        color: Colors.orange.shade200,
-                      ),
-                    ],
-                  ),
+                SegmentTab(
+                  label: '팔로잉',
+                  color: Colors.white,
+                  backgroundColor: Colors.grey,
                 ),
               ],
             ),
