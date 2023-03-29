@@ -242,7 +242,7 @@ class _SegmentedTabControlState extends State<SegmentedTabControl> with SingleTi
     return DefaultTextStyle(
       style: widget.textStyle ?? DefaultTextStyle.of(context).style,
       child: LayoutBuilder(builder: (context, constraints) {
-        final indicatorWidth = (constraints.maxWidth - widget.indicatorPadding.horizontal) / _controller!.length;
+        final indicatorWidth = (constraints.maxWidth - 48 - widget.indicatorPadding.horizontal) / _controller!.length;
 
         return ClipRRect(
           borderRadius: BorderRadius.all(widget.radius),
@@ -317,15 +317,16 @@ class _SegmentedTabControlState extends State<SegmentedTabControl> with SingleTi
                       ),
                     ),
                     child: IgnorePointer(
-                      child: _Labels(
-                        radius: widget.radius,
-                        splashColor: widget.splashColor,
-                        splashHighlightColor: widget.splashHighlightColor,
-                        availableSpace: constraints.maxWidth,
-                        tabs: widget.tabs,
-                        currentIndex: _internalIndex,
-                        textStyle: textStyle.copyWith(
-                          color: selectedTabTextColor,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: _Labels(
+                          radius: widget.radius,
+                          splashColor: widget.splashColor,
+                          splashHighlightColor: widget.splashHighlightColor,
+                          availableSpace: constraints.maxWidth - 48,
+                          tabs: widget.tabs,
+                          currentIndex: _internalIndex,
+                          textStyle: textStyle.copyWith(color: selectedTabTextColor),
                         ),
                       ),
                     ),

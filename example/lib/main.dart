@@ -26,11 +26,15 @@ class MyApp extends StatelessWidget {
                 SegmentTab(
                   label: '팔로워',
                   color: Colors.white,
+                  textColor: Colors.blue,
+                  selectedTextColor: Colors.blue,
                   backgroundColor: Colors.grey,
                 ),
                 SegmentTab(
                   label: '팔로잉',
                   color: Colors.white,
+                  textColor: Colors.blue,
+                  selectedTextColor: Colors.blue,
                   backgroundColor: Colors.grey,
                 ),
               ],
